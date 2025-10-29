@@ -1,26 +1,46 @@
-import { useNavigation } from "@react-navigation/native";
-import { Button, FlatList, Text, View } from "react-native";
+import { useNavigation } from '@react-navigation/native';
+import { useState } from 'react';
+import { Button, Text, View } from 'react-native';
+import EmployeeDisplayComp from '../components/employee-display';
 
-export default function AboutScreen(){
+let people = [
+  {
+    fname: 'John',
+    age: 30,
+    city: 'Calgary',
+  },
+  {
+    fname: 'Alice',
+    age: 25,
+    city: 'Edmonton',
+  },
+  {
+    fname: 'Frank',
+    age: 35,
+    city: 'Lethbridge',
+  },
+];
 
-    const navigation = useNavigation();
+let person = {
+  fname: 'Jane',
+  age: 20,
+  city: 'Calgary',
+};
 
-    const myArray = ['Item One', 'Item Two', 'Item Three', 'Item Four'];
-    let array2 = [];
-    for (let i = 0; i < 400; i++) {
-        let thisText = `Item ${i}`;
-        array2.push(thisText);
-    }
+export default function AboutScreen() {
+  const [peopleList, setPeopleList] = useState(people);
+  const navigation = useNavigation();
 
-    return(
-        <View>
-            <Text>this is the about screen!</Text>
-            <Button title="Go to Contact" onPress={ () => navigation.navigate('Contact') } />
-            <FlatList 
-                data={array2} 
-                renderItem={ ({item}) => <Text>{item}</Text> }
-                keyExtractor={ (item, index) => index }
-            />
-        </View>
-    );
+  function addPerson() {
+    let newEmployeeList = [...peopleList, person];
+    setPeopleList(newEmployeeList);
+  }
+
+  return (
+    <View>
+      <Text>Our Team Members</Text>
+      <EmployeeDisplayComp employeeList={peopleList} />
+      <Button title='Add New Person' onPress={addPerson} />
+    </View>
+  );
 }

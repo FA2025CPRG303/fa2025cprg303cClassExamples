@@ -17,6 +17,10 @@ export default function HomeScreen() {
         title="Go to About"
         onPress={() => navigation.navigate('About')}
       />
+      <Button
+        title="Go to Counter"
+        onPress={() => navigation.navigate('Counter')}
+      />
       <ScrollView>
         <Text style={{ fontSize: 30, textAlign: 'center' }}>Hello World!</Text>
         <Text style={styles.paragraphText}>
