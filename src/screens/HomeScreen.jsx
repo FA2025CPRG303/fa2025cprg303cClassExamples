@@ -14,6 +14,10 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <Button
+        title="Art Gallery"
+        onPress={() => navigation.navigate('Gallery')}
+      />
+      <Button
         title="Dog Adoption"
         onPress={() => navigation.navigate('Adopt')}
       />
