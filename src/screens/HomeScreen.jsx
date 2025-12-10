@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import { Button, Image, ScrollView, StyleSheet, Text } from 'react-native';
+import { Button, Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useMyTheme } from '../context/theme-context';
 
 export default function HomeScreen() {
