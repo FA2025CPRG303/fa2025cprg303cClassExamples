@@ -1,8 +1,9 @@
-import { Text, View } from 'react-native';
+import { Text } from 'react-native';
 import dogData from '../assets/data/dog-data.json'
 import { useState } from 'react';
 import DogListComp from '../components/adoption/dog-list';
 import DogFormComp from '../components/adoption/dog-form';
+import BasicLayout from '../layouts/basic-layout';
 
 export default function AdoptionScreen() {
 
@@ -16,10 +17,10 @@ export default function AdoptionScreen() {
     }
 
   return (
-    <View>
+    <BasicLayout>
       <Text>Dogs for Adoption</Text>
       <DogListComp dogArray={dogList} />
       <DogFormComp newDogFunc={addNewDog} />
-    </View>
+    </BasicLayout>
   );
 }

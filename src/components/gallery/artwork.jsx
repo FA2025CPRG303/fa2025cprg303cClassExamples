@@ -1,12 +1,14 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
+import { useMyTheme } from '../../context/theme-context';
 
 export default function ArtworkComp({ artworkObj }) {
+  const {themeStyles} = useMyTheme();
   const { title, artistDisplayName, objectDate, primaryImageSmall } =
     artworkObj;
 
   return (
     <View style={artStyles.container}>
-      <Text style={{ fontSize: 20 }}>{title}</Text>
+      <Text style={[{ fontSize: 20 }, themeStyles.text]}>{title}</Text>
       <View style={artStyles.imgContainer}>
       <Image
         source={{ uri: primaryImageSmall }}
@@ -14,8 +16,8 @@ export default function ArtworkComp({ artworkObj }) {
         resizeMode="contain"
       />
       </View>
-      <Text>Artist: {artistDisplayName}</Text>
-      <Text>Date: {objectDate}</Text>
+      <Text style={themeStyles.text}>Artist: {artistDisplayName}</Text>
+      <Text style={themeStyles.text}>Date: {objectDate}</Text>
     </View>
   );
 }

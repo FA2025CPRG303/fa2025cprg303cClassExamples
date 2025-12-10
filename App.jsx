@@ -7,8 +7,10 @@ import ContactScreen from './src/screens/ContactScreen';
 import CounterScreen from './src/screens/CounterScreen';
 import AdoptionScreen from './src/screens/AdoptionScreen';
 import GalleryScreen from './src/screens/GalleryScreen';
+import ThemeLayout from './src/layouts/theme-layout';
 
 const RootStack = createNativeStackNavigator( {
+  layout: ThemeLayout,
   screens: {
     Home: HomeScreen,
     About: AboutScreen,

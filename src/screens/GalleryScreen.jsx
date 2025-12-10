@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Button, Text, View } from 'react-native';
 import ArtworkComp from '../components/gallery/artwork';
+import { useMyTheme } from '../context/theme-context';
 
 export default function GalleryScreen() {
+  const {themeStyles} = useMyTheme();
   const [singleArt, setSingleArt] = useState(null);
   const [changeImage, setChangeImage] = useState(0);
   const validIds = [
@@ -40,8 +42,8 @@ export default function GalleryScreen() {
   console.log(singleArt);
 
   return (
-    <View style={{ padding: 20 }}>
-      <Text style={{ fontSize: 30 }}>API Art Gallery</Text>
+    <View style={[{ padding: 20 }, themeStyles.container]}>
+      <Text style={[{ fontSize: 30 }, themeStyles.text]}>API Art Gallery</Text>
       {singleArt && <ArtworkComp artworkObj={singleArt} />}
       <Button
         title="Get Random Artwork"
